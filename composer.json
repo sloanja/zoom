@@ -1,5 +1,5 @@
 {
-    "name": "MacsiDigital/zoom",
+    "name": "macsidigital/zoom",
     "description": "Zoom API Wrapper for Laravel",
     "homepage": "https://github.com/MacsiDigital/zoom",
     "keywords": ["zoom", "api", "client"],
