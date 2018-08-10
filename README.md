@@ -2,6 +2,7 @@
     <img src="https://laravel.com/assets/img/components/logo-laravel.svg">
 </p>
 
+# Please note this is stil in development and is not complete and nor has it been tested
 
 # Zoom API Wrapper ( https://zoom.github.io/api/ ) 
 
