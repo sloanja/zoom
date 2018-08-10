@@ -1,7 +1,5 @@
 <?php
-
-
-namespace Fessnik\Zoom\Facade;
+namespace MacsiDigital\Zoom\Facade;
 
 use Illuminate\Support\Facades\Facade;
 

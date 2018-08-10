@@ -1,16 +1,11 @@
 <?php
-
-namespace Fessnik\Zoom;
+namespace MacsiDigital\Zoom;
 
 use Exception;
 use Illuminate\Support\Str;
 
 /**
- * Class Zoom
- * @package Fessnik\Zoom
- *
- * @property-read \Fessnik\Zoom\Classes\Users $users
- * @property-read \Fessnik\Zoom\Classes\Meetings $meetings
+ * @package MacsiDigital\Zoom
  */
 class Zoom
 {
@@ -48,15 +43,11 @@ class Zoom
      */
     public function make($resource)
     {
-        $class = 'Fessnik\\Zoom\\Classes\\' . Str::studly($resource);
-
+        $class = 'MacsiDigital\\Zoom\\Requests\\' . Str::studly($resource);
         if (class_exists($class)) {
-
             return new $class();
         }
-
         throw new Exception('Wrong method');
     }
-
 
 }
