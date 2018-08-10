@@ -13,7 +13,7 @@
 From the command line, run:
 
 ```
-composer require MacsiDigital/zoom
+composer require macsidigital/zoom
 ```
 
 ### Step 2: Service Provider (For Laravel < 5.5)

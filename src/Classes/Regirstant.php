@@ -1,7 +1,7 @@
 <?php 
 namespace MacsiDigital\Zoom\Classes;
 
-class User extends Model
+class Registrant extends Model
 {
 
     protected $attributes = [
