@@ -2,7 +2,7 @@
     <img src="https://laravel.com/assets/img/components/logo-laravel.svg">
 </p>
 
-# Please note this is stil in development and is not complete and nor has it been tested
+# Please note this is stil in development and is not complete
 
 # Zoom API Wrapper ( https://zoom.github.io/api/ ) 
 
@@ -37,14 +37,16 @@ After that you will see `zoom.php` file in config directory, where you add value
 ### Usage
 
 ```
-$zoom = new Zoom();
+$zoom = new MacsiDigital\Zoom\Zoom();
 
-$zoom->users->list()
+$zoom->users->list();
 ```
 
 ### RESOURCES
 ```
 Meetings
+Panelists
+Registrants
 Users
 Webinars
 ```
