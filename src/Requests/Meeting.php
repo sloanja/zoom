@@ -2,7 +2,7 @@
 namespace MacsiDigital\Zoom\Requests;
 
 use MacsiDigital\Zoom\Http\Request;
-use MacsiDigital\Classes\Meeting as Model;
+use MacsiDigital\Zoom\Classes\Meeting as Model;
 
 class Meeting extends Request
 {
@@ -98,7 +98,7 @@ class Meeting extends Request
         $allowed_fields = ["email", "first_name", "last_name", "address", "city", "country", "zip", "state", "phone", "industry", "org", "job_title", "purchasing_time_frame", "role_in_purchase_process", "no_of_employees", "comments", "custom_questions"];
         $reg = [];
         foreach($allowed_fields as $field){
-            if($registrant->$field !- ""){
+            if($registrant->$field != ""){
                 $reg[$field] = $registrant->$field;
             }
         }

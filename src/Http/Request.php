@@ -16,10 +16,19 @@ class Request
     {
         $this->client = new Client();
         $this->headers = [
-            'Authorization' => 'Bearer ' . JWT::encode(['iss' => config('zoom.api_key'), 'exp' => time() + 60], config('zoom.api_secret')),
+            'Authorization' => 'Bearer ' . $this->generateJWT(),
             'Content-Type' => 'application/json',
             'Accept' => 'application/json',
         ];
+    }
+
+    public function generateJWT(){
+        $token = [
+            "iss" => config('zoom.api_key'),
+            // The benefit of JWT is expiry tokens, we'll set this one to expire in 1 minute
+            "exp" => time() + 60
+        ];
+        return JWT::encode($token, config('zoom.api_secret'));
     }
 
     /**
@@ -51,7 +60,7 @@ class Request
      */
     protected function post($method, $fields)
     {
-        $body = json_encode($fields, JSON_PRETTY_PRINT);
+        $body = json_encode($fields);
         try {
             $response = $this->client->request('POST', $this->endPoint . $method, [
                 'body' => $body, 
@@ -72,7 +81,7 @@ class Request
      */
     protected function patch($method, $fields)
     {
-        $body = json_encode($fields, JSON_PRETTY_PRINT);
+        $body = json_encode($fields);
         try {
             $response = $this->client->request('PATCH', $this->endPoint . $method, [
                 'body' => $body,
@@ -105,7 +114,7 @@ class Request
      */
     protected function result(Response $response)
     {
-        $result = json_decode((string)$response->getBody(), true)
+        $result = json_decode((string)$response->getBody(), true);
         $result['code'] = $response->getStatusCode();
         return $result;
     }

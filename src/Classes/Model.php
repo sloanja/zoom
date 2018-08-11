@@ -4,10 +4,10 @@ namespace MacsiDigital\Zoom\Classes;
 abstract class Model
 {
 
-	protected $attributes[];
+	protected $attributes = [];
 
 	public function __get($attribute){
-		if(exists($this->attributes[$attribute])){
+		if(isset($this->attributes[$attribute])){
 			return $this->attributes[$attribute];	
 		}
 		return;
@@ -20,19 +20,21 @@ abstract class Model
 	public function create($data)
     {
     	foreach($data as $attribute => $value){
-    		if(exists($this->attributes[$attribute])){
+    		if(isset($this->attributes[$attribute])){
     			$this->attributes[$attribute] = $value;
     		}
     	}
+        return $this;
     }
 
     public function update($data)
     {
     	foreach($data as $attribute => $value){
-    		if(exists($this->attributes[$attribute])){
+    		if(isset($this->attributes[$attribute])){
     			$this->attributes[$attribute] = $value;
     		}
     	}
+        return $this;
     }
 
     public function return()

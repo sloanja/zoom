@@ -2,9 +2,9 @@
 namespace MacsiDigital\Zoom\Requests;
 
 use MacsiDigital\Zoom\Http\Request;
-use MacsiDigital\Classes\User as Model;
-use MacsiDigital\Classes\Panelist;
-use MacsiDigital\Classes\Registrant;
+use MacsiDigital\Zoom\Classes\User as Model;
+use MacsiDigital\Zoom\Classes\Panelist;
+use MacsiDigital\Zoom\Classes\Registrant;
 
 /**
  * Class Users

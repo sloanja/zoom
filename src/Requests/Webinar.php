@@ -2,7 +2,9 @@
 namespace MacsiDigital\Zoom\Requests;
 
 use MacsiDigital\Zoom\Http\Request;
-use MacsiDigital\Classes\Webinar as Model;
+use MacsiDigital\Zoom\Classes\Webinar as Model;
+use MacsiDigital\Zoom\Classes\Panelist;
+use MacsiDigital\Zoom\Classes\Registrant;
 
 class Webinar extends Request
 {
@@ -43,6 +45,7 @@ class Webinar extends Request
      */
     public function retrieve($webinarId)
     {
+        dd($this->get("webinars/{$webinarId}"));
         return Model::instantiate($this->get("webinars/{$webinarId}"));
     }
 
@@ -109,7 +112,7 @@ class Webinar extends Request
     {
     	$panel = [];
     	foreach($apnelists as $panelist){
-    		$panel[] = ['name' => $panelist->name, 'email' => $panelist->email]
+    		$panel[] = ['name' => $panelist->name, 'email' => $panelist->email];
     	}
     	return $this->post("webinars/{$webinarId}/panelists", ['panelists' => $panel]);
     }
@@ -149,7 +152,7 @@ class Webinar extends Request
     	$response = $this->get("webinars/{$webinarId}/registrants");
     	$registrants = [];
     	foreach($response['registrants'] as $registrant){
-    		$registrants[] = Registrant::instantiate($reggistrant);
+    		$registrants[] = Registrant::instantiate($registrant);
     	}
     	return $registrants;
     }
@@ -161,16 +164,16 @@ class Webinar extends Request
      * @param array $registrant
      * @return array|mixed
      */
-    public function addRegistrant($webinarId, $registrant)
+    public function addRegistrant($webinarId, Registrant $registrant)
     {
     	$allowed_fields = ["email", "first_name", "last_name", "address", "city", "country", "zip", "state", "phone", "industry", "org", "job_title", "purchasing_time_frame", "role_in_purchase_process", "no_of_employees", "comments", "custom_questions"];
     	$reg = [];
     	foreach($allowed_fields as $field){
-    		if($registrant->$field !- ""){
+    		if($registrant->$field != "" && $registrant->$field != []){
     			$reg[$field] = $registrant->$field;
     		}
     	}
-    	return $this->post("webinars/{$webinarId}/registrant", $reg);
+    	return $this->post("webinars/{$webinarId}/registrants", $reg);
     }
 
     /**
