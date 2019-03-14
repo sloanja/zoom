@@ -39,7 +39,7 @@ After that you will see `zoom.php` file in config directory, where you add value
 ```
 $zoom = new MacsiDigital\Zoom\Zoom();
 
-$zoom->users->list();
+$response=$zoom->user->list();
 ```
 
 ### RESOURCES
