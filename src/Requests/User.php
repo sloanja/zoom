@@ -109,13 +109,14 @@ class User extends Request
     //  * Add Assistant
     //  *
     //  * @param string $userId
-    //  * @param array $data
+    //  * @param array $data containing json of email addresses (OR) id
+    //  * must have ID or email. If given the user ID, then email should be ignored.
     //  * @return array|mixed
     //  */
-    // public function addAssistant(string $userId, array $data)
-    // {
-    //     return $this->post("users{$userId}/assistants", $data);
-    // }
+    public function addAssistant(string $userId, array $data)
+    {
+            return $this->post("users{$userId}/assistants", $data);
+    }
 
     // /**
     //  * Delete Assistants
@@ -123,10 +124,10 @@ class User extends Request
     //  * @param string $userId
     //  * @return array|mixed
     //  */
-    // public function deleteAssistants(string $userId)
-    // {
-    //     return $this->delete("users/{$userId}/assistants");
-    // }
+    public function deleteAssistants(string $userId)
+    {
+        return $this->delete("users/{$userId}/assistants");
+    }
 
     // /**
     //  * Delete Assistant
@@ -135,10 +136,10 @@ class User extends Request
     //  * @param string $assistantId
     //  * @return array|mixed
     //  */
-    // public function deleteAssistant(string $userId, string $assistantId)
-    // {
-    //     return $this->delete("users/{$userId}/assistants/{$assistantId}");
-    // }
+    public function deleteAssistant(string $userId, string $assistantId)
+    {
+        return $this->delete("users/{$userId}/assistants/{$assistantId}");
+    }
 
     // /**
     //  * Schedulers List
@@ -146,10 +147,10 @@ class User extends Request
     //  * @param string $userId
     //  * @return array|mixed
     //  */
-    // public function schedulersList(string $userId)
-    // {
-    //     return $this->get("users/{$userId}/schedulers");
-    // }
+    public function schedulersList(string $userId)
+    {
+        return $this->get("users/{$userId}/schedulers");
+    }
 
     // /**
     //  * Deletes Schedulers
@@ -157,10 +158,10 @@ class User extends Request
     //  * @param string $userId
     //  * @return array|mixed
     //  */
-    // public function deletesSchedulers(string $userId)
-    // {
-    //     return $this->delete("users/{$userId}/schedulers");
-    // }
+    public function deletesSchedulers(string $userId)
+    {
+        return $this->delete("users/{$userId}/schedulers");
+    }
 
     // /**
     //  * Deletes Scheduler
@@ -169,9 +170,9 @@ class User extends Request
     //  * @param string $schedulerId
     //  * @return array|mixed
     //  */
-    // public function deletesScheduler(string $userId, string $schedulerId)
-    // {
-    //     return $this->delete("users/{$userId}/schedulers/{$schedulerId}");
-    // }
-
+    public function deletesScheduler(string $userId, string $schedulerId)
+    {
+        return $this->delete("users/{$userId}/schedulers/{$schedulerId}");
+    }
+    
 }
