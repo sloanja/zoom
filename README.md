@@ -4,7 +4,7 @@
 
 # Please note this is still in development and is not complete
 
-# Zoom API Wrapper ( https://zoom.github.io/api/ ) 
+# Zoom API V2 Wrapper ( https://marketplace.zoom.us/docs/api-reference/introduction ) 
 
 ## Installation
 
