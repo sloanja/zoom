@@ -9,7 +9,8 @@ class User extends Model
     	'last_name' => '', //string
     	'email' => '', //string
     	'type' => '', //integer
-    	'pmi' => '', //string
+    	'pmi' => '', //integer
+	'use_pmi' => '', //boolean
     	'timezone' => '', //string
     	'dept' => '', //string
     	'created_at' => '', //string [date-time]
